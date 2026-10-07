@@ -12,4 +12,8 @@ class AppSettings(context: Context) {
     var soundEnabled: Boolean
         get() = prefs.getBoolean("sound_enabled", true)
         set(value) { prefs.edit().putBoolean("sound_enabled", value).apply() }
+
+    var useFrontCamera: Boolean
+        get() = prefs.getBoolean("use_front_camera", false)
+        set(value) { prefs.edit().putBoolean("use_front_camera", value).apply() }
 }

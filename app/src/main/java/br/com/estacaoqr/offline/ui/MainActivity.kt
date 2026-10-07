@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.cameraView.onQrRead = ::onQrRead
         binding.cameraView.onCameraError = { showNeutral("ERRO DE CÂMERA", it) }
+        binding.cameraView.onCameraSwitched = { Toast.makeText(this, it, Toast.LENGTH_SHORT).show() }
         binding.adminButton.setOnClickListener {
             startActivity(Intent(this, AdminAuthActivity::class.java))
         }
