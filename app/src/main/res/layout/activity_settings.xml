@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/neutral_light">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="QUIOSQUE E SEGURANÇA" android:textColor="@color/industrial_blue_dark" android:textSize="25sp" android:textStyle="bold" />
+        <TextView android:id="@+id/deviceOwnerStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:background="#FFFFFFFF" android:padding="14dp" android:textSize="16sp" />
+        <androidx.appcompat.widget.SwitchCompat android:id="@+id/kioskSwitch" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="14dp" android:text="Ativar modo quiosque" android:textSize="18sp" />
+        <androidx.appcompat.widget.SwitchCompat android:id="@+id/soundSwitch" android:layout_width="match_parent" android:layout_height="64dp" android:text="Alerta sonoro em peça diferente" android:textSize="18sp" />
+        <Button android:id="@+id/exportConfigButton" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="14dp" android:text="EXPORTAR CONFIGURAÇÃO" />
+        <Button android:id="@+id/importConfigButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="10dp" android:text="IMPORTAR CONFIGURAÇÃO" />
+        <Button android:id="@+id/changePinButton" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="10dp" android:text="ALTERAR PIN ADMINISTRATIVO" />
+        <Button android:id="@+id/exitKioskButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="12dp" android:text="PARAR QUIOSQUE E SAIR DO APP" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="No Android 4.4, o app oculta as barras e bloqueia as saídas internas. O bloqueio total do sistema exige Android 5.0 ou superior e provisionamento como Device Owner." android:textSize="15sp" />
+        <Button android:id="@+id/backButton" android:layout_width="match_parent" android:layout_height="60dp" android:layout_marginTop="24dp" android:text="VOLTAR" />
+    </LinearLayout>
+</ScrollView>

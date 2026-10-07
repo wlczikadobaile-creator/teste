@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/neutral_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ÁREA ADMINISTRATIVA"
+            android:textColor="@color/industrial_blue_dark"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Todos os dados permanecem somente neste aparelho."
+            android:textSize="16sp" />
+
+        <Button android:id="@+id/piecesButton" android:layout_width="match_parent" android:layout_height="72dp" android:layout_marginTop="24dp" android:text="CADASTRO DE PEÇAS" android:textSize="18sp" />
+        <Button android:id="@+id/reviewersButton" android:layout_width="match_parent" android:layout_height="72dp" android:layout_marginTop="12dp" android:text="REVISORAS E QRs ASSINADOS" android:textSize="18sp" />
+        <Button android:id="@+id/logsButton" android:layout_width="match_parent" android:layout_height="72dp" android:layout_marginTop="12dp" android:text="VISUALIZAR LOGS" android:textSize="18sp" />
+        <Button android:id="@+id/settingsButton" android:layout_width="match_parent" android:layout_height="72dp" android:layout_marginTop="12dp" android:text="QUIOSQUE E SEGURANÇA" android:textSize="18sp" />
+        <Button android:id="@+id/backToScannerButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="24dp" android:text="VOLTAR AO LEITOR" android:textSize="17sp" />
+    </LinearLayout>
+</ScrollView>

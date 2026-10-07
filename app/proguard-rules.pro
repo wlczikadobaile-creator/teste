@@ -1,0 +1,2 @@
+-keep class br.com.estacaoqr.offline.data.** { *; }
+-keepattributes *Annotation*

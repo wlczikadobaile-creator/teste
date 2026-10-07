@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/neutral_light"
+    android:orientation="horizontal"
+    android:padding="18dp">
+
+    <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.9" android:background="@color/industrial_blue_dark" android:orientation="vertical" android:padding="22dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="QUIOSQUE E\nSEGURANÇA" android:textColor="#FFFFFF" android:textSize="29sp" android:textStyle="bold" />
+        <TextView android:id="@+id/deviceOwnerStatus" android:layout_width="match_parent" android:layout_height="0dp" android:layout_marginTop="16dp" android:layout_weight="1" android:textColor="#FFFFFF" android:textSize="16sp" />
+        <Button android:id="@+id/backButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="60dp" android:backgroundTint="#FFFFFFFF" android:text="VOLTAR" android:textColor="@color/industrial_blue_dark" />
+    </LinearLayout>
+
+    <ScrollView android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginStart="18dp" android:layout_weight="1.3">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="8dp">
+            <androidx.appcompat.widget.SwitchCompat android:id="@+id/kioskSwitch" android:layout_width="match_parent" android:layout_height="66dp" android:background="#FFFFFFFF" android:paddingHorizontal="16dp" android:text="Ativar modo quiosque" android:textSize="19sp" />
+            <androidx.appcompat.widget.SwitchCompat android:id="@+id/soundSwitch" android:layout_width="match_parent" android:layout_height="66dp" android:layout_marginTop="10dp" android:background="#FFFFFFFF" android:paddingHorizontal="16dp" android:text="Alerta sonoro em peça diferente" android:textSize="19sp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="14dp" android:orientation="horizontal">
+                <Button android:id="@+id/exportConfigButton" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="EXPORTAR CONFIGURAÇÃO" />
+                <Space android:layout_width="10dp" android:layout_height="1dp" />
+                <Button android:id="@+id/importConfigButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="IMPORTAR CONFIGURAÇÃO" />
+            </LinearLayout>
+            <Button android:id="@+id/changePinButton" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="10dp" android:text="ALTERAR PIN ADMINISTRATIVO" />
+            <Button android:id="@+id/exitKioskButton" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="10dp" android:backgroundTint="@color/error_red" android:text="PARAR QUIOSQUE E SAIR DO APP" android:textColor="#FFFFFF" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="O bloqueio total do sistema exige provisionamento como Device Owner." android:textSize="15sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

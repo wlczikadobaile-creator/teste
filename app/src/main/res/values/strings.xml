@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Estação QR Offline</string>
+    <string name="device_admin_description">Administração local do modo quiosque industrial.</string>
+</resources>

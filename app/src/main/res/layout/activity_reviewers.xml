@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/neutral_light"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="REVISORAS" android:textColor="@color/industrial_blue_dark" android:textSize="25sp" android:textStyle="bold" />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Os QRs têm assinatura criptográfica deste aparelho." android:textSize="15sp" />
+    <Button android:id="@+id/addReviewerButton" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="14dp" android:text="+ NOVA REVISORA" android:textSize="18sp" />
+    <Button android:id="@+id/generateAllPdfButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="60dp" android:layout_marginTop="8dp" android:text="GERAR TODOS EM PDF A4" android:textSize="16sp" />
+    <TextView android:id="@+id/emptyReviewers" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:gravity="center" android:text="Nenhuma revisora cadastrada" android:textSize="17sp" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/reviewersList" android:layout_width="match_parent" android:layout_height="0dp" android:layout_marginTop="10dp" android:layout_weight="1" />
+    <Button android:id="@+id/backButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="58dp" android:text="VOLTAR" />
+</LinearLayout>

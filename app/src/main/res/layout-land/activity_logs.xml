@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/neutral_light"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <LinearLayout android:layout_width="280dp" android:layout_height="match_parent" android:background="@color/industrial_blue_dark" android:orientation="vertical" android:padding="20dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="LOGS\nLOCAIS" android:textColor="#FFFFFF" android:textSize="28sp" android:textStyle="bold" />
+        <TextView android:layout_width="match_parent" android:layout_height="0dp" android:layout_marginTop="12dp" android:layout_weight="1" android:text="Liberações e leituras mais recentes aparecem primeiro." android:textColor="#FFFFFF" android:textSize="16sp" />
+        <Button android:id="@+id/exportLogsButton" android:layout_width="match_parent" android:layout_height="62dp" android:backgroundTint="@color/industrial_blue" android:text="EXPORTAR LOGS" android:textColor="#FFFFFF" />
+        <Button android:id="@+id/clearLogsButton" android:layout_width="match_parent" android:layout_height="62dp" android:layout_marginTop="10dp" android:backgroundTint="@color/error_red" android:text="APAGAR LOGS" android:textColor="#FFFFFF" />
+        <Button android:id="@+id/backButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="58dp" android:layout_marginTop="10dp" android:backgroundTint="#FFFFFFFF" android:text="VOLTAR" android:textColor="@color/industrial_blue_dark" />
+    </LinearLayout>
+
+    <FrameLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_marginStart="16dp" android:layout_weight="1">
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/logsList" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingEnd="4dp" />
+        <TextView android:id="@+id/emptyLogs" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:text="Nenhum evento registrado" android:textColor="@color/industrial_blue_dark" android:textSize="20sp" />
+    </FrameLayout>
+</LinearLayout>

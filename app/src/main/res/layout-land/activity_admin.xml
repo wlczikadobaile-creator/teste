@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/neutral_light"
+    android:orientation="horizontal"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:background="@color/industrial_blue_dark"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ÁREA\nADMINISTRATIVA"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Dados armazenados somente neste aparelho."
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/backToScannerButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="#FFFFFFFF"
+            android:text="VOLTAR AO LEITOR"
+            android:textColor="@color/industrial_blue_dark"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="18dp"
+        android:layout_weight="1.3"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
+            <Button android:id="@+id/piecesButton" android:layout_width="0dp" android:layout_height="match_parent" android:layout_margin="6dp" android:layout_weight="1" android:text="CADASTRO\nDE PEÇAS" android:textSize="19sp" />
+            <Button android:id="@+id/reviewersButton" android:layout_width="0dp" android:layout_height="match_parent" android:layout_margin="6dp" android:layout_weight="1" android:text="REVISORAS E\nQRs ASSINADOS" android:textSize="19sp" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
+            <Button android:id="@+id/logsButton" android:layout_width="0dp" android:layout_height="match_parent" android:layout_margin="6dp" android:layout_weight="1" android:text="VISUALIZAR\nLOGS" android:textSize="19sp" />
+            <Button android:id="@+id/settingsButton" android:layout_width="0dp" android:layout_height="match_parent" android:layout_margin="6dp" android:layout_weight="1" android:text="QUIOSQUE E\nSEGURANÇA" android:textSize="19sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

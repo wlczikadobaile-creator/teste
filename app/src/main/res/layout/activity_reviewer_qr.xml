@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
+    <TextView android:id="@+id/reviewerName" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:textColor="@color/industrial_blue_dark" android:textSize="27sp" android:textStyle="bold" />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:gravity="center" android:text="QR ASSINADO PARA LIBERAÇÃO" android:textSize="16sp" />
+    <ImageView android:id="@+id/qrImage" android:layout_width="320dp" android:layout_height="320dp" android:layout_marginTop="16dp" android:contentDescription="QR assinado da revisora" android:scaleType="fitCenter" />
+    <TextView android:id="@+id/reviewerId" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:gravity="center" android:textSize="12sp" />
+    <Button android:id="@+id/downloadCardButton" android:layout_width="match_parent" android:layout_height="62dp" android:layout_marginTop="16dp" android:text="BAIXAR CARTÃO EM PDF" />
+    <Button android:id="@+id/backButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="62dp" android:layout_marginTop="10dp" android:text="VOLTAR" />
+</LinearLayout>

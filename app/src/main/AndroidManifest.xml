@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="true" />
+
+    <application
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:icon="@drawable/ic_launcher_background"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.EstacaoQROffline">
+
+        <activity android:name=".ui.ScanResultActivity" android:screenOrientation="sensorLandscape" />
+        <activity android:name=".ui.SettingsActivity" android:screenOrientation="sensorLandscape" />
+        <activity android:name=".ui.LogsActivity" android:screenOrientation="sensorLandscape" />
+        <activity android:name=".ui.ReviewerQrActivity" android:screenOrientation="sensorLandscape" />
+        <activity android:name=".ui.ReviewersActivity" android:screenOrientation="sensorLandscape" />
+        <activity android:name=".ui.PiecesActivity" android:screenOrientation="sensorLandscape" />
+        <activity android:name=".ui.AdminActivity" android:screenOrientation="sensorLandscape" />
+        <activity android:name=".ui.AdminAuthActivity" android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:lockTaskMode="if_whitelisted"
+            android:screenOrientation="sensorLandscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".kiosk.QrDeviceAdminReceiver"
+            android:description="@string/device_admin_description"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

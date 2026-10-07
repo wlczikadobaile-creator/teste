@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/industrial_blue_dark"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="30dp">
+
+    <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center_vertical" android:orientation="vertical" android:paddingEnd="30dp">
+        <TextView android:id="@+id/authTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ACESSO ADMINISTRATIVO" android:textColor="#FFFFFF" android:textSize="31sp" android:textStyle="bold" />
+        <TextView android:id="@+id/authHelp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Digite o PIN administrativo" android:textColor="#FFFFFF" android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="#FFFFFFFF" android:gravity="center" android:orientation="vertical" android:padding="28dp">
+        <EditText android:id="@+id/pinInput" android:layout_width="match_parent" android:layout_height="64dp" android:gravity="center" android:hint="PIN" android:importantForAutofill="no" android:inputType="numberPassword" android:maxLength="12" android:textSize="25sp" />
+        <EditText android:id="@+id/confirmPinInput" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="8dp" android:gravity="center" android:hint="Confirmar PIN" android:importantForAutofill="no" android:inputType="numberPassword" android:maxLength="12" android:textSize="25sp" android:visibility="gone" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="18dp" android:orientation="horizontal">
+            <Button android:id="@+id/cancelButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="CANCELAR" />
+            <Space android:layout_width="10dp" android:layout_height="1dp" />
+            <Button android:id="@+id/authButton" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="ENTRAR" android:textSize="17sp" android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
