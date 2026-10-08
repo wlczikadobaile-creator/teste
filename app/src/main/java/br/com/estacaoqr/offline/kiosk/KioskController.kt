@@ -34,14 +34,28 @@ object KioskController {
             (context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager)
                 .isDeviceOwnerApp(context.packageName)
 
+    private fun admin(context: Context) = ComponentName(context, QrDeviceAdminReceiver::class.java)
+
     fun configureDeviceOwner(context: Context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) return
         val manager = context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
+        if (!manager.isDeviceOwnerApp(context.packageName)) return
+        val admin = admin(context)
+        manager.setLockTaskPackages(admin, arrayOf(context.packageName))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // Bloqueio total: sem botão início, sem recentes, sem notificações e sem aviso de desafixar.
+            runCatching { manager.setLockTaskFeatures(admin, DevicePolicyManager.LOCK_TASK_FEATURE_NONE) }
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            runCatching { manager.setStatusBarDisabled(admin, true) }
+        }
+    }
+
+    private fun releaseDeviceOwnerRestrictions(context: Context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return
+        val manager = context.getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
         if (manager.isDeviceOwnerApp(context.packageName)) {
-            manager.setLockTaskPackages(
-                ComponentName(context, QrDeviceAdminReceiver::class.java),
-                arrayOf(context.packageName)
-            )
+            runCatching { manager.setStatusBarDisabled(admin(context), false) }
         }
     }
 
@@ -54,6 +68,7 @@ object KioskController {
 
     fun stop(activity: Activity): Boolean = runCatching {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) return@runCatching false
+        releaseDeviceOwnerRestrictions(activity)
         activity.stopLockTask()
         true
     }.getOrDefault(false)

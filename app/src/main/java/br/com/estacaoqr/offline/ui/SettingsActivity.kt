@@ -51,8 +51,8 @@ class SettingsActivity : AppCompatActivity() {
         binding.deviceOwnerStatus.text = when {
             Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP ->
                 "Android 4.4 detectado: tela cheia disponível; Lock Task não existe nesta versão."
-            owner -> "Device Owner ativo: bloqueio total do sistema disponível."
-            else -> "Device Owner não configurado: o Android poderá mostrar uma confirmação de fixação de tela."
+            owner -> "Device Owner ativo: bloqueio total. Sem aviso de desafixar; a saída é feita somente por esta tela."
+            else -> "Device Owner não configurado: o Android mostra o aviso \"deslize para cima para desafixar\" e permite sair por gesto. Configure o Device Owner para bloqueio total."
         }
 
         bindingSwitches = true
