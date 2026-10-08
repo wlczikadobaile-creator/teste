@@ -32,6 +32,8 @@ em modo paisagem e modo quiosque.
   (sem aviso "deslize para desafixar"); saída só pela tela de configurações com PIN.
 - 1.4.0 — opção "Tela sempre ligada": após 5 min sem uso o brilho cai para 5%; o primeiro
   toque só restaura o brilho (`ui/ScreenDimmer.kt`, `AppSettings.screenAlwaysOn`, padrão ligado).
+- 1.5.0 — importação aceita arquivo "somente peças" (sem `qrSigningKey`): não troca a chave dos
+  cartões nem mexe nas revisoras; "Substituir" apaga só as peças.
 
 ## Observações
 

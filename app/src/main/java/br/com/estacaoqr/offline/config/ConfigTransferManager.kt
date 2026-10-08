@@ -92,28 +92,35 @@ class ConfigTransferManager(private val context: Context) {
         val payload = JSONObject(decrypt(JSONObject(encryptedText), password))
         require(payload.optInt("schema") == SCHEMA_VERSION) { "Versão de configuração não suportada." }
 
-        val signingKey = payload.getString("qrSigningKey")
-        val signingBytes = Base64.decode(signingKey, Base64.NO_WRAP)
-        require(signingBytes.size == 32) { "Chave de assinatura inválida." }
+        // Arquivo "somente peças": sem chave de assinatura. Nesse caso a chave atual dos
+        // cartões de revisora e as revisoras cadastradas são preservadas.
+        val signingKey = payload.optString("qrSigningKey", "").trim()
+        val piecesOnly = signingKey.isEmpty()
+        if (!piecesOnly) {
+            val signingBytes = Base64.decode(signingKey, Base64.NO_WRAP)
+            require(signingBytes.size == 32) { "Chave de assinatura inválida." }
+        }
 
         val pieces = parsePieces(payload.getJSONArray("pieces"))
-        val reviewers = parseReviewers(payload.getJSONArray("reviewers"))
+        val reviewers = if (piecesOnly) emptyList() else parseReviewers(payload.optJSONArray("reviewers") ?: JSONArray())
         val importedSettings = payload.optJSONObject("settings")
 
         database.withTransaction {
             if (replaceExisting) {
                 database.dao().clearPieces()
-                database.dao().clearReviewers()
+                if (!piecesOnly) database.dao().clearReviewers()
             }
             pieces.forEach { database.dao().savePiece(it) }
             reviewers.forEach { database.dao().saveReviewer(it) }
         }
-        signer.importPortableKey(signingKey)
+        if (!piecesOnly) {
+            signer.importPortableKey(signingKey)
+            SessionStore(context).clear()
+        }
         importedSettings?.let {
             settings.kioskEnabled = it.optBoolean("kioskEnabled", settings.kioskEnabled)
             settings.soundEnabled = it.optBoolean("soundEnabled", settings.soundEnabled)
         }
-        SessionStore(context).clear()
         ConfigTransferSummary(pieces.size, reviewers.size, replaceExisting)
     }
 

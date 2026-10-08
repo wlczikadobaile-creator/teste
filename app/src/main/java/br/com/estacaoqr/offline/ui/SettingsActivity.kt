@@ -131,7 +131,7 @@ class SettingsActivity : AppCompatActivity() {
         }
         AlertDialog.Builder(this)
             .setTitle("Importar configuração")
-            .setMessage("MESCLAR preserva cadastros locais. SUBSTITUIR apaga as peças e revisoras atuais. A chave dos cartões será trocada pela chave do arquivo; use os cartões de revisora dessa configuração. Logs e PIN administrativo não são importados.")
+            .setMessage("MESCLAR preserva cadastros locais. SUBSTITUIR apaga as peças e revisoras atuais. Em arquivos completos, a chave dos cartões é trocada pela do arquivo (use os cartões de revisora dessa configuração). Arquivos somente de peças não alteram revisoras nem cartões. Logs e PIN administrativo não são importados.")
             .setView(content)
             .setNegativeButton("Cancelar", null)
             .setNeutralButton("Substituir") { _, _ -> importConfig(uri, password.text.toString(), true) }
@@ -149,7 +149,7 @@ class SettingsActivity : AppCompatActivity() {
             withContext(Dispatchers.Main) {
                 result.onSuccess {
                     refreshSettingsFromStore()
-                    toast("Configuração importada: ${it.pieces} peça(s) e ${it.reviewers} revisora(s). Sessão encerrada.")
+                    toast("Configuração importada: ${it.pieces} peça(s) e ${it.reviewers} revisora(s).")
                 }.onFailure { toast("Falha ao importar: ${it.message}") }
             }
         }
