@@ -16,6 +16,7 @@
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="8dp">
             <androidx.appcompat.widget.SwitchCompat android:id="@+id/kioskSwitch" android:layout_width="match_parent" android:layout_height="66dp" android:background="#FFFFFFFF" android:paddingHorizontal="16dp" android:text="Ativar modo quiosque" android:textSize="19sp" />
             <androidx.appcompat.widget.SwitchCompat android:id="@+id/soundSwitch" android:layout_width="match_parent" android:layout_height="66dp" android:layout_marginTop="10dp" android:background="#FFFFFFFF" android:paddingHorizontal="16dp" android:text="Alerta sonoro em peça diferente" android:textSize="19sp" />
+            <androidx.appcompat.widget.SwitchCompat android:id="@+id/screenOnSwitch" android:layout_width="match_parent" android:layout_height="66dp" android:layout_marginTop="10dp" android:background="#FFFFFFFF" android:paddingHorizontal="16dp" android:text="Tela sempre ligada (brilho 5% após 5 min sem uso)" android:textSize="19sp" />
             <LinearLayout android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="14dp" android:orientation="horizontal">
                 <Button android:id="@+id/exportConfigButton" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="EXPORTAR CONFIGURAÇÃO" />
                 <Space android:layout_width="10dp" android:layout_height="1dp" />

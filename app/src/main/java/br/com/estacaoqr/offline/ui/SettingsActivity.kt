@@ -58,6 +58,7 @@ class SettingsActivity : AppCompatActivity() {
         bindingSwitches = true
         binding.kioskSwitch.isChecked = settings.kioskEnabled
         binding.soundSwitch.isChecked = settings.soundEnabled
+        binding.screenOnSwitch.isChecked = settings.screenAlwaysOn
         bindingSwitches = false
 
         binding.kioskSwitch.setOnCheckedChangeListener { _, enabled ->
@@ -72,6 +73,7 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
         binding.soundSwitch.setOnCheckedChangeListener { _, enabled -> settings.soundEnabled = enabled }
+        binding.screenOnSwitch.setOnCheckedChangeListener { _, enabled -> settings.screenAlwaysOn = enabled }
         binding.changePinButton.setOnClickListener { showChangePinDialog() }
         binding.exportConfigButton.setOnClickListener { showExportDialog() }
         binding.importConfigButton.setOnClickListener {
@@ -157,6 +159,7 @@ class SettingsActivity : AppCompatActivity() {
         bindingSwitches = true
         binding.kioskSwitch.isChecked = settings.kioskEnabled
         binding.soundSwitch.isChecked = settings.soundEnabled
+        binding.screenOnSwitch.isChecked = settings.screenAlwaysOn
         bindingSwitches = false
     }
 

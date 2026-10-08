@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     private val session by lazy { SessionStore(this) }
     private val settings by lazy { AppSettings(this) }
     private val signer by lazy { ReviewerQrSigner(this) }
+    private val dimmer by lazy { ScreenDimmer(this) }
     private var processing = false
     private var lastValue = ""
     private var lastReadAt = 0L
@@ -60,10 +62,21 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         KioskController.hideSystemUi(this)
+        dimmer.setEnabled(settings.screenAlwaysOn)
         if (settings.kioskEnabled && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             KioskController.start(this)
         }
         updateSessionHeader()
+    }
+
+    override fun onPause() {
+        dimmer.pause()
+        super.onPause()
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        if (dimmer.handleTouch(ev)) return true
+        return super.dispatchTouchEvent(ev)
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -96,6 +109,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onQrRead(raw: String) {
+        dimmer.onActivity()
         val now = System.currentTimeMillis()
         if (processing || (raw == lastValue && now - lastReadAt < DEBOUNCE_MS)) return
         processing = true

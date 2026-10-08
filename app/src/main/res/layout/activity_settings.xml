@@ -8,6 +8,7 @@
         <TextView android:id="@+id/deviceOwnerStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:background="#FFFFFFFF" android:padding="14dp" android:textSize="16sp" />
         <androidx.appcompat.widget.SwitchCompat android:id="@+id/kioskSwitch" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="14dp" android:text="Ativar modo quiosque" android:textSize="18sp" />
         <androidx.appcompat.widget.SwitchCompat android:id="@+id/soundSwitch" android:layout_width="match_parent" android:layout_height="64dp" android:text="Alerta sonoro em peça diferente" android:textSize="18sp" />
+        <androidx.appcompat.widget.SwitchCompat android:id="@+id/screenOnSwitch" android:layout_width="match_parent" android:layout_height="64dp" android:text="Tela sempre ligada (brilho 5% após 5 min sem uso)" android:textSize="18sp" />
         <Button android:id="@+id/exportConfigButton" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="14dp" android:text="EXPORTAR CONFIGURAÇÃO" />
         <Button android:id="@+id/importConfigButton" style="@style/Widget.MaterialComponents.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="10dp" android:text="IMPORTAR CONFIGURAÇÃO" />
         <Button android:id="@+id/changePinButton" android:layout_width="match_parent" android:layout_height="64dp" android:layout_marginTop="10dp" android:text="ALTERAR PIN ADMINISTRATIVO" />
